@@ -1,73 +1,47 @@
-# Welcome to your Lovable project
+# 🚀 Parth Pandya – Flutter Developer Portfolio
 
-## Project info
+Welcome to my personal developer portfolio website. This project is designed to showcase my skills, experience, and projects as a Flutter Mobile Application Developer.
 
-**URL**: https://lovable.dev/projects/f7c310e4-9121-4857-8b81-dcbed05a3cd4
+🌐 **Live Website**: [https://parth111pandya.github.io/resume](https://parth111pandya.github.io/resume)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 👨‍💻 About Me
 
-**Use Lovable**
+I’m Parth Pandya, a Mobile Application Developer with over 4 years of experience specializing in **Flutter**. I build modern, scalable, and high-performance **cross-platform apps** using clean architecture and well-organized code structures.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f7c310e4-9121-4857-8b81-dcbed05a3cd4) and start prompting.
+This site acts as a quick interactive resume to help potential collaborators, employers, and clients explore what I do.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🛠 Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+| Area         | Tools & Technologies                          |
+|--------------|-----------------------------------------------|
+| Frontend     | React, Vite, TypeScript, TailwindCSS          |
+| Mobile Dev   | Flutter, Dart                                 |
+| UI/UX        | Figma, Responsive Web Design                  |
+| Dev Tools    | Git, GitHub, VS Code                          |
+| Deployment   | GitHub Pages                                  |
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🧪 Running Locally
 
-# Step 3: Install the necessary dependencies.
-npm i
+To run this project locally on your machine:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Clone the repo
+git clone https://github.com/parth111pandya/resume.git
+
+# Navigate to project directory
+cd resume
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f7c310e4-9121-4857-8b81-dcbed05a3cd4) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
