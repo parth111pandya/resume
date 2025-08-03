@@ -26,7 +26,7 @@ const Footer = () => {
     },
     {
       icon: <Github className="h-5 w-5" />,
-      href: "https://parth111pandya.github.io/portfolio/",
+      href: "https://github.com/parth111pandya",
       label: "Portfolio"
     }
   ];
@@ -76,7 +76,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>+971 52 391 6556</p>
               <p>ParthPandya1510@gmail.com</p>
-              <p>Sharjah, UAE</p>
+              <p>Dubai, UAE</p>
             </div>
           </div>
         </div>

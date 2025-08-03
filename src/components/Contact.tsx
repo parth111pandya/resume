@@ -32,7 +32,7 @@ const Contact = () => {
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "Sharjah, UAE",
+      value: "Dubai, UAE",
       href: "#",
       description: "Open for remote & on-site work"
     },
@@ -92,10 +92,10 @@ const Contact = () => {
               </p>
               <Button 
                 className="w-full bg-primary hover:bg-primary/90 glow"
-                onClick={() => window.open("https://parth111pandya.github.io/portfolio/", "_blank")}
+                onClick={() => window.open("https://docs.google.com/document/d/1DZXz-zunvtS7_CbNhMCBOfRt6DaBJMj5-9Z6iRY55mM/edit?usp=sharing", "_blank")}
               >
                 <Download className="h-4 w-4 mr-2" />
-                View Portfolio
+                Resume
               </Button>
             </Card>
           </div>

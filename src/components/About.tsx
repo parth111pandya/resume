@@ -29,11 +29,11 @@ const About = () => {
               </p>
             </Card>
 
-            <Card className="p-8 glass hover-scale">
+            {/* <Card className="p-8 glass hover-scale">
               <h3 className="text-2xl font-semibold mb-4 gradient-text">Personal Details</h3>
               <div className="grid sm:grid-cols-2 gap-4 text-sm">
                 <div className="space-y-2">
-                  <p><span className="text-muted-foreground">Location:</span> Sharjah, UAE</p>
+                  <p><span className="text-muted-foreground">Location:</span> Dubai, UAE</p>
                   <p><span className="text-muted-foreground">Nationality:</span> Indian</p>
                   <p><span className="text-muted-foreground">Languages:</span> English, Hindi, Gujarati</p>
                 </div>
@@ -43,12 +43,12 @@ const About = () => {
                   <p><span className="text-muted-foreground">Experience:</span> 4+ Years</p>
                 </div>
               </div>
-            </Card>
+            </Card> */}
           </div>
 
           {/* Strengths & Stats */}
           <div className="space-y-6">
-            <Card className="p-8 glass hover-scale">
+            {/* <Card className="p-8 glass hover-scale">
               <h3 className="text-2xl font-semibold mb-6 gradient-text">Personal Strengths</h3>
               <div className="grid gap-4">
                 {[
@@ -63,7 +63,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </Card>
+            </Card> */}
 
             <Card className="p-8 glass hover-scale">
               <h3 className="text-2xl font-semibold mb-6 gradient-text">Key Achievements</h3>
