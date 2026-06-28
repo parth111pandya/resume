@@ -1,12 +1,12 @@
+import { useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Phone } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToSection = useCallback((sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

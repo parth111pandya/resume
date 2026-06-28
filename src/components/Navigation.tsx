@@ -1,49 +1,57 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Download } from "lucide-react";
+
+const RESUME_URL =
+  "https://docs.google.com/document/d/1DZXz-zunvtS7_CbNhMCBOfRt6DaBJMj5-9Z6iRY55mM/edit?usp=sharing";
+
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" }
+] as const;
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" }
-  ];
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = useCallback((href: string) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
-  };
+  }, []);
+
+  const openResume = useCallback(() => {
+    window.open(RESUME_URL, "_blank");
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "glass shadow-lg" : "bg-transparent"
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "glass shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-xl font-bold gradient-text hover:scale-105 transition-transform"
-            >
-              Parth Pandya
-            </button>
-          </div>
+          <button
+            onClick={scrollToTop}
+            className="text-xl font-bold gradient-text hover:scale-105 transition-transform"
+          >
+            Parth Pandya
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -56,11 +64,7 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <Button 
-              size="sm" 
-              className="bg-primary hover:bg-primary/90 glow"
-              onClick={() => window.open("https://docs.google.com/document/d/1DZXz-zunvtS7_CbNhMCBOfRt6DaBJMj5-9Z6iRY55mM/edit?usp=sharing", "_blank")}
-            >
+            <Button size="sm" className="bg-primary hover:bg-primary/90 glow" onClick={openResume}>
               <Download className="h-4 w-4 mr-2" />
               Resume
             </Button>
@@ -71,8 +75,9 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               className="hover:bg-white/10"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -93,14 +98,7 @@ const Navigation = () => {
                 </button>
               ))}
               <div className="px-3 py-2">
-                <Button 
-                  size="sm" 
-                  className="w-full bg-primary hover:bg-primary/90"
-                  onClick={() => {
-                    window.open("https://docs.google.com/document/d/1DZXz-zunvtS7_CbNhMCBOfRt6DaBJMj5-9Z6iRY55mM/edit?usp=sharing", "_blank");
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
+                <Button size="sm" className="w-full bg-primary hover:bg-primary/90" onClick={openResume}>
                   <Download className="h-4 w-4 mr-2" />
                   Resume
                 </Button>
