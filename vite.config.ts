@@ -37,5 +37,5 @@ export default defineConfig(({ command }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/resume/', // 👈 IMPORTANT for GitHub Pages
+  base: '/', // root — for custom domain (parth.thewebbrew.com)
 }))
