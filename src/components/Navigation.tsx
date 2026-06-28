@@ -40,7 +40,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
@@ -76,7 +76,7 @@ const Navigation = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className="hover:bg-white/10"
+              className="hover:bg-primary/10 hover:text-foreground"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -87,7 +87,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 glass mt-2 rounded-lg border border-white/10">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md mt-2 rounded-lg border border-border">
               {navItems.map((item) => (
                 <button
                   key={item.label}

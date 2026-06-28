@@ -1,79 +1,70 @@
-import { Button } from "@/components/ui/button";
-import { Heart, ArrowUp, Mail, Phone, Linkedin, Github } from "lucide-react";
+import { useCallback } from "react";
+import { ArrowUp, Mail, Phone, Linkedin, Github, ExternalLink } from "lucide-react";
+
+const CURRENT_YEAR = new Date().getFullYear();
+
+const socialLinks = [
+  { icon: <Mail className="h-4 w-4" />,    href: "mailto:ParthPandya1510@gmail.com", label: "Email" },
+  { icon: <Phone className="h-4 w-4" />,   href: "tel:+971523916556",                 label: "Phone" },
+  { icon: <Linkedin className="h-4 w-4" />, href: "https://www.linkedin.com/in/parthpandya1510/", label: "LinkedIn" },
+  { icon: <Github className="h-4 w-4" />,  href: "https://github.com/parth111pandya", label: "GitHub" },
+];
 
 const Footer = () => {
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      href: "mailto:ParthPandya1510@gmail.com",
-      label: "Email"
-    },
-    {
-      icon: <Phone className="h-5 w-5" />,
-      href: "tel:+971523916556", 
-      label: "Phone"
-    },
-    {
-      icon: <Linkedin className="h-5 w-5" />,
-      href: "https://www.linkedin.com/in/parthpandya1510/",
-      label: "LinkedIn"
-    },
-    {
-      icon: <Github className="h-5 w-5" />,
-      href: "https://github.com/parth111pandya",
-      label: "Portfolio"
-    }
-  ];
+  }, []);
 
   return (
-    <footer className="relative bg-surface/80 border-t border-white/10">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-secondary/20 blur-2xl" />
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+    <footer className="border-t border-border bg-background">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
           {/* Brand */}
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold gradient-text mb-2">Parth Pandya</h3>
-            <p className="text-muted-foreground mb-4">Flutter Developer</p>
-            <p className="text-sm text-muted-foreground max-w-sm">
-              Building exceptional mobile experiences with 4+ years of Flutter expertise. 
-              Available for exciting opportunities worldwide.
+          <div>
+            <button
+              onClick={scrollToTop}
+              className="text-xl font-bold gradient-text mb-2 block"
+            >
+              Parth Pandya
+            </button>
+            <p className="text-sm text-muted-foreground mb-1">Flutter Developer</p>
+            <a
+              href="https://thewebbrew.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
+            >
+              Founder & CEO, TheWebBrew
+              <ExternalLink className="h-3 w-3" />
+            </a>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Building mobile apps · Running a web studio in Dubai, UAE
             </p>
           </div>
 
-          {/* Social Links */}
-          <div className="text-center">
-            <h4 className="text-lg font-semibold mb-4">Let's Connect</h4>
-            <div className="flex justify-center gap-4">
-              {socialLinks.map((link, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="sm"
-                  className="glass hover:bg-white/10 hover:scale-110 transition-all"
-                  onClick={() => window.open(link.href, "_blank")}
-                  aria-label={link.label}
+          {/* Social */}
+          <div className="md:text-center">
+            <p className="text-sm font-medium text-foreground mb-4">Connect</p>
+            <div className="flex md:justify-center gap-3">
+              {socialLinks.map(({ icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  aria-label={label}
+                  className="p-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-primary/5 transition-all"
                 >
-                  {link.icon}
-                </Button>
+                  {icon}
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Quick Contact */}
-          <div className="text-center md:text-right">
-            <h4 className="text-lg font-semibold mb-4">Quick Contact</h4>
-            <div className="space-y-2 text-sm text-muted-foreground">
+          {/* Quick contact */}
+          <div className="md:text-right">
+            <p className="text-sm font-medium text-foreground mb-4">Contact</p>
+            <div className="space-y-1.5 text-sm text-muted-foreground">
               <p>+971 52 391 6556</p>
               <p>ParthPandya1510@gmail.com</p>
               <p>Dubai, UAE</p>
@@ -82,31 +73,26 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="my-8 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="my-8 h-px bg-border" />
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>© {currentYear} Parth Pandya. Made with</span>
-            <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-            <span>using React & Tailwind</span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground">Available for work</span>
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        {/* Bottom row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+          <span>© {CURRENT_YEAR} Parth Pandya. All rights reserved.</span>
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Available for opportunities</span>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <Button
+      {/* Scroll to top */}
+      <button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary hover:bg-primary/90 glow pulse-glow z-40"
-        size="sm"
+        className="fixed bottom-6 right-6 w-10 h-10 rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-primary/5 flex items-center justify-center transition-all glow z-40"
+        aria-label="Scroll to top"
       >
-        <ArrowUp className="h-5 w-5" />
-      </Button>
+        <ArrowUp className="h-4 w-4" />
+      </button>
     </footer>
   );
 };
